@@ -1,0 +1,1 @@
+[Главная](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/task.md) 
