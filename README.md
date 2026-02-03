@@ -1,6 +1,6 @@
 # Дипломный практикум в Yandex.Cloud - Мельник Юрий Алексадрович
 
-### Группы безопастности
+# Этапы выполнения задания
 [Задание](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/task.md)  
 [Создание облачной инфраструктуры](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/cloud.md)  
 [Создание Kubernetes кластера](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/Kubernetes.md)  
