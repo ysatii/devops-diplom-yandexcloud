@@ -122,3 +122,7 @@ kubernetes_sigs-kubespray*tar.gz
 ansible_collections
 personal.auto.tfvars
 *.auto.tfvars
+
+# secrets
+personal.auto.tfvars
+*.auto.tfvars
