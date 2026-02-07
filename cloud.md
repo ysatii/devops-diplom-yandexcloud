@@ -2,8 +2,9 @@
 
 # Создаем инфраструктуру 
 ## 1. Создаем bucket  
- (https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/terraform/backet/bucket.tf)
+ (https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/terraform/backet/)
  
+команды для создания бакета  
 ```
 terraform init
 terraform validate
@@ -12,13 +13,18 @@ terraform apply -auto-approve
 ```
 
 Структура 
-├── bucket.tf                   - создание бакета 
-├── providers.tf                - описан провайдер яндекс   
-├── service-account.tf          - создаем сервисный аккаунт для работы с ресурсами
-├── variables.tf                - идентификаторы облака
-└── versions.tf                 - версия провайдера яндекс
+├── bucket.tf                   - создание бакета   
+├── providers.tf                - описан провайдер яндекс    
+├── service-account.tf          - создаем сервисный аккаунт для работы с ресурсами  
+├── variables.tf                - идентификаторы облака  
+└── versions.tf                 - версия провайдера яндекс  
 
 
+![Рисунок 1](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_1.jpg) 
+
+![Рисунок 1](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_2.jpg) 
+
+![Рисунок 1](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_3.jpg) 
 
 
 ## 2. Использование бакета для храниения файла сотояния  terraform
