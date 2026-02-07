@@ -12,7 +12,7 @@ terraform plan
 terraform apply -auto-approve
 ```
 
-Структура 
+Структура  
 ├── bucket.tf                   - создание бакета   
 ├── providers.tf                - описан провайдер яндекс    
 ├── service-account.tf          - создаем сервисный аккаунт для работы с ресурсами  
@@ -22,9 +22,9 @@ terraform apply -auto-approve
 
 ![Рисунок 1](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_1.jpg) 
 
-![Рисунок 1](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_2.jpg) 
+![Рисунок 2](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_2.jpg) 
 
-![Рисунок 1](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_3.jpg) 
+![Рисунок 3](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_3.jpg) 
 
 
 ## 2. Использование бакета для храниения файла сотояния  terraform
@@ -55,5 +55,5 @@ terraform {
 # 4 файл terraform.tfstate теперь храниться в bucket
 
 также можно включить версионирование в bucket
-
+![Рисунок 4](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_4.jpg) 
 ------
