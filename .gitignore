@@ -126,3 +126,7 @@ personal.auto.tfvars
 # secrets
 personal.auto.tfvars
 *.auto.tfvars
+
+# External tools
+kubespray/
+

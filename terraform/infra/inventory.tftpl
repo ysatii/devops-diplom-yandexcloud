@@ -1,0 +1,41 @@
+all:
+  vars:
+    ansible_user: ${ansible_user}
+
+  hosts:
+%{ for i, h in masters ~}
+    k8s-master-${i + 1}:
+      ansible_host: ${h.public_ip}
+      ip: ${h.private_ip}
+      access_ip: ${h.private_ip}
+%{ endfor ~}
+
+%{ for i, h in workers ~}
+    k8s-worker-${i + 1}:
+      ansible_host: ${h.public_ip}
+      ip: ${h.private_ip}
+      access_ip: ${h.private_ip}
+%{ endfor ~}
+
+  children:
+    kube_control_plane:
+      hosts:
+%{ for i, h in masters ~}
+        k8s-master-${i + 1}:
+%{ endfor ~}
+    kube_node:
+      hosts:
+%{ for i, h in workers ~}
+        k8s-worker-${i + 1}:
+%{ endfor ~}
+    etcd:
+      hosts:
+%{ for i, h in masters ~}
+        k8s-master-${i + 1}:
+%{ endfor ~}
+    k8s_cluster:
+      children:
+        kube_control_plane:
+        kube_node:
+    calico_rr:
+      hosts: {}
