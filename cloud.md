@@ -29,13 +29,22 @@ terraform apply -auto-approve
 
 ## 2. Использование бакета для храниения файла сотояния  terraform
 необходимо  экспортировать ключ AWS_ACCESS_KEY_ID и AWS_SECRET_ACCESS_KEY в терминал 
-  ```
-  export AWS_ACCESS_KEY_ID=$(terraform output -raw sa_access_key)
-  export AWS_SECRET_ACCESS_KEY=$(terraform output -raw sa_secret_key)
-  ```
+```
+export AWS_ACCESS_KEY_ID=$(terraform output -raw sa_access_key)
+export AWS_SECRET_ACCESS_KEY=$(terraform output -raw sa_secret_key)
+```
 ![Рисунок 3](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_3.jpg) 
 
 ![Рисунок 5](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_5.jpg)   
+
+
+или
+ ~/.aws/credentials записываем ключи,
+
+[default]
+aws_access_key_id = XXXXXXXXXXXXXXXX
+aws_secret_access_key = YYYYYYYYYYYYYYYYYYYY
+
 
 ## 3 В папке для создания серверов кластера создаем файл /backend.tf
 листинг terraform/infra/backend.tf
@@ -55,17 +64,22 @@ terraform {
 ```
 
 
-# 4 файл terraform.tfstate теперь храниться в bucket
+# 4 Проверка bucket
+Файл terraform.tfstate теперь храниться в bucket
 
-также можно включить версионирование в bucket
+Также можно включить версионирование в bucket
 ![Рисунок 4](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_4.jpg) 
+
+Можно просмотреть версии файла
+![Рисунок 20](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_20.jpg) 
 ------
 
+
 ## 1. Создаем сервера для кластера 
-создаем одну мастер ноду и две рабочих
+Создаем одну мастер ноду и две рабочих
 ![созданире инфраструктуры](https://github.com/ysatii/devops-diplom-yandexcloud/tree/main/terraform/infra)
 
-команды для создания бакета  
+Команды для создания бакета  
 ```
 terraform init
 terraform validate
@@ -97,16 +111,16 @@ terraform apply -auto-approve
 Посмотрим в консоли какие машины создались 
 ![Рисунок 8](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_8.jpg) 
 
-посмотрим сеть
+Посмотрим сеть
 ![Рисунок 9](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_9.jpg) 
 
-внешние Ип адреса
+Внешние Ип адреса
 ![Рисунок 10](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_10.jpg) 
 
-сервисные аккаунты
+Сервисные аккаунты
 ![Рисунок 11](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_11.jpg) 
 
-подсети сети k8s-net
+Подсети сети k8s-net
 ![Рисунок 12](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_12.jpg) 
 
 Файл с спискаси ип адресов мастер ноды и воркеров
