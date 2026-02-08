@@ -39,11 +39,12 @@ export AWS_SECRET_ACCESS_KEY=$(terraform output -raw sa_secret_key)
 
 
 или
- ~/.aws/credentials записываем ключи,
+ ~/.aws/credentials записываем ключи  
 
 [default]
-aws_access_key_id = XXXXXXXXXXXXXXXX
-aws_secret_access_key = YYYYYYYYYYYYYYYYYYYY
+aws_access_key_id = XXXXXXXXXXXXXXXX  
+aws_secret_access_key = YYYYYYYYYYYYYYYYYYYY  
+и не ужно каждый раз экспортировать
 
 
 ## 3 В папке для создания серверов кластера создаем файл /backend.tf
