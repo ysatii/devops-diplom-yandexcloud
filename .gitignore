@@ -133,5 +133,5 @@ kubespray/
 # Но разрешаем inventory hosts.yml
 !kubespray/inventory/
 !kubespray/inventory/my-k8s-cluster/
-!kubespray/inventory/my-k8s-cluster/hosts.yml
+!terraform/kubespray/inventory/my-k8s-cluster/hosts.yml
 
