@@ -71,6 +71,20 @@ terraform validate
 terraform plan
 terraform apply -auto-approve
 ```
+├── backend.tf               - бакет для хранения файла состояния  
+├── compute.tf               - создаем мастре и воркеры
+├── inventory.tf             - генерирует инвентору
+├── inventory.tftpl          - шаблон для генерации инвентори
+├── locals.tf                - описывает зоны для размещения серверов
+├── meta.txt                 - мета содержимое для создание виртуальных машин
+├── networks.tf              - описывает сеть и подсети
+├── outputs.tf               - внешгншние и внутренные ип адреса серверов
+├── providers.tf             - описан провайлдер яндекс
+├── security.tf              - группы бесзопастности
+├── variables.tf             - переменные и описание диапозонов под сетей
+└── versions.tf              - версия провайдера яндекс и local
+
+
 
 Получили ip адреса машин  
 ![Рисунок 6](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_6.jpg) 
@@ -83,6 +97,12 @@ terraform apply -auto-approve
 
 посмотрим сеть
 ![Рисунок 9](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_9.jpg) 
+
+внешние Ип адреса
 ![Рисунок 10](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_10.jpg) 
+
+сервисные аккаунты
 ![Рисунок 11](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_11.jpg) 
+
+подсети сети k8s-net
 ![Рисунок 12](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_12.jpg) 
