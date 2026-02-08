@@ -1,7 +1,7 @@
 [Главная](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/task.md) 
 
-## Репозиторий для приложения 
-[репозиторий](https://github.com/ysatii/devops-diplom-app-nginx) согласно задания!
+# Репозиторий для приложения 
+[репозиторий c приложением https://github.com/ysatii/devops-diplom-app-nginx](https://github.com/ysatii/devops-diplom-app-nginx) согласно задания!
 ```
 git clone git@github.com:ysatii/devops-diplom-app-nginx.git
 ```
@@ -48,5 +48,6 @@ docker push cr.yandex/crppb66e9i1ff7ch71d2/devops-diplom-app-nginx:v1
 ![Рисунок 23](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_23.jpg) 
 ![Рисунок 24](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_24.jpg) 
 
+registry_id = "crppb66e9i1ff7ch71d2" присутвует в выводе terraform
 
 ![Рисунок 25](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_25.jpg) 
