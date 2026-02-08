@@ -24,7 +24,7 @@ terraform apply -auto-approve
 
 ![Рисунок 2](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_2.jpg) 
 
-![Рисунок 3](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_3.jpg) 
+
 
 
 ## 2. Использование бакета для храниения файла сотояния  terraform
@@ -33,6 +33,9 @@ terraform apply -auto-approve
   export AWS_ACCESS_KEY_ID=$(terraform output -raw sa_access_key)
   export AWS_SECRET_ACCESS_KEY=$(terraform output -raw sa_secret_key)
   ```
+![Рисунок 3](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_3.jpg) 
+
+![Рисунок 5](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_5.jpg)   
 
 ## 3 В папке для создания серверов кластера создаем файл /backend.tf
 листинг terraform/infra/backend.tf
@@ -57,3 +60,19 @@ terraform {
 также можно включить версионирование в bucket
 ![Рисунок 4](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_4.jpg) 
 ------
+
+## 1. Создаем сервера сервера
+создаем одну мастер ноду и две рабочих
+
+команды для создания бакета  
+```
+terraform init
+terraform validate
+terraform plan
+terraform apply -auto-approve
+```
+
+![Рисунок 6](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_6.jpg) 
+![Рисунок 7](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_7.jpg) 
+![Рисунок 8](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_8.jpg) 
+![Рисунок 9](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_9.jpg) 
