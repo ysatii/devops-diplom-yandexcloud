@@ -127,6 +127,11 @@ personal.auto.tfvars
 personal.auto.tfvars
 *.auto.tfvars
 
-# External tools
+# Ignore kubespray полностью
 kubespray/
+
+# Но разрешаем inventory hosts.yml
+!kubespray/inventory/
+!kubespray/inventory/my-k8s-cluster/
+!kubespray/inventory/my-k8s-cluster/hosts.yml
 

@@ -1,11 +1,9 @@
 [Главная](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/task.md) 
 
+# установка кластера 
+## Склонируем Kubespray (правильная версия)
+в корне проекта devops-diplom-yandexcloud
 
-Выйди в корень проекта 
-# 4 
-cd ~/Рабочий\ стол/devops-diplom-yandexcloud
-
-Склонируй Kubespray (правильная версия)
 git clone https://github.com/kubernetes-sigs/kubespray.git
 
 cp -r terraform/kubespray/inventory/my-k8s-cluster kubespray/inventory/
