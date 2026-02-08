@@ -93,3 +93,9 @@ variable "subnets" {
     { zone = "ru-central1-d", cidr = "10.0.3.0/24" },
   ]
 }
+
+variable "registry_name" {
+  description = "Name of Yandex Container Registry"
+  type        = string
+  default     = "devops-diplom-registry"
+}
