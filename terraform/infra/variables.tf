@@ -47,13 +47,13 @@ variable "master_count" {
 
 variable "worker_count" {
   type = number
-  default = 3 
+  default = 2 
 }
 
 # ресурсы ВМ (можно менять)
 variable "master_cores" {
   type = number
-  default = 2 
+  default = 4 
 }
 
 variable "master_memory" {
@@ -63,7 +63,7 @@ variable "master_memory" {
 
 variable "worker_cores" {
   type = number
-  default = 2
+  default = 4
 }
 
 variable "worker_memory" {
