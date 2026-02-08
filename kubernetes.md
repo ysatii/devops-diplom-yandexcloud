@@ -234,11 +234,12 @@ nano ~/k8s-admin.conf
 
 В секции clusters добавить  insecure-skip-tls-verify: true и #certificate-authority-data нужно закоментировать
 
+```
 clusters:
 - cluster:
     insecure-skip-tls-verify: true
     server: https://93.77.181.183:6443
-
+```
 
 экспортируем настройки в командную оболочку
 
