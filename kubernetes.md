@@ -190,12 +190,13 @@ ansible -i inventory/my-k8s-cluster/hosts.yml all -m ping
 ansible-playbook -i inventory/my-k8s-cluster/hosts.yml cluster.yml -u lamer --become -b -v
 ```
 
-Если необходимо я готов выставить рабочую версии!
------------------------------------------------------------------------------------
+**Если необходимо я готов выставить рабочую версии!**
+ 
 Установка прошла успешно 
 ![Рисунок 17](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_17.jpg) 
 
 подлючимся к мастер ноде и проверим состояние 
+
 ```
 sudo -i
 export KUBECONFIG=/etc/kubernetes/admin.conf
@@ -206,12 +207,14 @@ kubectl get pods -n kube-system
 ```
 
 все установилось, все в порядке 
+
 ![Рисунок 18](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_18.jpg) 
------------------------------------------------------------------------------------
+ 
  
 ## настройка дотупа с локальной машины
  Скопируем файл admin.conf в домашний каталог
 ```
+ssh -l lamer 93.77.181.183
 sudo cp /etc/kubernetes/admin.conf /home/lamer/admin.conf
 sudo chown lamer:lamer /home/lamer/admin.conf
 chmod 600 /home/lamer/admin.conf
@@ -237,15 +240,20 @@ clusters:
     server: https://93.77.181.183:6443
 
 
-экспортируем настройки 
+экспортируем настройки в командную оболочку
+
+
+```
 export KUBECONFIG=~/k8s-admin.conf
 kubectl get nodes -o wide
-===============================
+```
 
 проверим работу кластера
+
 ```
 kubectl get nodes
 kubectl get pods --all-namespaces
 ```
+
 ![Рисунок 18](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_18.jpg) 
-===========
+ 
