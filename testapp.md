@@ -24,6 +24,9 @@ docker images | grep devops-diplom-app-nginx
 ![Рисунок 21](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_21.jpg) 
 
 ## docker login с токеном из tfvars
+создаем регестри [terraform/infra/yandex_container_registry.tf](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/terraform/infra/yandex_container_registry.tf)
+Сздаем сервис аккаунт , для рабты с регестри [terraform/infra/service-account.tf](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/terraform/infra/service-account.tf)
+
 ```
 cd devops-diplom-yandexcloud/terraform/infra
  
@@ -45,6 +48,5 @@ docker push cr.yandex/crppb66e9i1ff7ch71d2/devops-diplom-app-nginx:v1
 ![Рисунок 23](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_23.jpg) 
 ![Рисунок 24](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_24.jpg) 
 
-создаем регестри terraform/infra/yandex_container_registry.tf
-terraform/infra/service-account.tf
+
 ![Рисунок 25](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_25.jpg) 
