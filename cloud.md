@@ -83,3 +83,6 @@ terraform apply -auto-approve
 
 посмотрим сеть
 ![Рисунок 9](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_9.jpg) 
+![Рисунок 10](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_10.jpg) 
+![Рисунок 11](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_11.jpg) 
+![Рисунок 12](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_12.jpg) 
