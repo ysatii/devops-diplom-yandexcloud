@@ -72,7 +72,14 @@ terraform plan
 terraform apply -auto-approve
 ```
 
+Получили ip адреса машин  
 ![Рисунок 6](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_6.jpg) 
+
+Можем посмотреть версии terraform.tfstate
 ![Рисунок 7](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_7.jpg) 
+
+Посмотрим в консоли какие машины создались 
 ![Рисунок 8](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_8.jpg) 
+
+посмотрим сеть
 ![Рисунок 9](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_9.jpg) 

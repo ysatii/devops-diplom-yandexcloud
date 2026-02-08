@@ -25,8 +25,8 @@ resource "yandex_compute_instance" "master" {
   }
 
   network_interface {
-    subnet_id          = yandex_vpc_subnet.k8s.id
-    nat                = true
+    subnet_id = yandex_vpc_subnet.subnet[local.worker_zones[count.index % length(local.worker_zones)]].id
+    nat       = true
     security_group_ids = [yandex_vpc_security_group.k8s.id]
   }
 
@@ -41,7 +41,7 @@ resource "yandex_compute_instance" "worker" {
 
   name        = "k8s-worker-${count.index + 1}"
   platform_id = "standard-v3"
-  zone        = var.zone
+  zone = local.subnet_zones[count.index]
 
   scheduling_policy {
     preemptible = var.workers_preemptible
@@ -61,8 +61,8 @@ resource "yandex_compute_instance" "worker" {
   }
 
   network_interface {
-    subnet_id          = yandex_vpc_subnet.k8s.id
-    nat                = true
+    subnet_id = yandex_vpc_subnet.subnet[local.subnet_zones[count.index]].id
+    nat       = true
     security_group_ids = [yandex_vpc_security_group.k8s.id]
   }
 
@@ -71,3 +71,5 @@ resource "yandex_compute_instance" "worker" {
   }
 
 }
+
+ 

@@ -21,6 +21,10 @@ variable "zone" {
   default = "ru-central1-a"
 }
 
+variable "default_zone" {
+  default     = "ru-central1-a"
+}
+
 variable "network_cidr" {
   type = string
   default = "10.240.0.0/24"
@@ -43,7 +47,7 @@ variable "master_count" {
 
 variable "worker_count" {
   type = number
-  default = 2 
+  default = 3 
 }
 
 # ресурсы ВМ (можно менять)
@@ -76,4 +80,16 @@ variable "disk_size_gb" {
 variable "workers_preemptible" {
   type = bool 
   default = true 
+}
+
+variable "subnets" {
+  type = list(object({
+    zone = string
+    cidr = string
+  }))
+  default = [
+    { zone = "ru-central1-a", cidr = "10.0.1.0/24" },
+    { zone = "ru-central1-b", cidr = "10.0.2.0/24" },
+    { zone = "ru-central1-d", cidr = "10.0.3.0/24" },
+  ]
 }
