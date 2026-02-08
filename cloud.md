@@ -106,3 +106,50 @@ terraform apply -auto-approve
 
 подсети сети k8s-net
 ![Рисунок 12](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_12.jpg) 
+
+Файл с спискаси ип адресов мастер ноды и воркеров
+[инвентори файл](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/terraform/kubespray/inventory/my-k8s-cluster/hosts.yml)
+
+```
+all:
+  vars:
+    ansible_user: lamer
+
+  hosts:
+    k8s-master-1:
+      ansible_host: 51.250.65.222
+      ip: 10.0.1.7
+      access_ip: 10.0.1.7
+
+    k8s-worker-1:
+      ansible_host: 89.169.136.241
+      ip: 10.0.1.34
+      access_ip: 10.0.1.34
+    k8s-worker-2:
+      ansible_host: 89.169.191.144
+      ip: 10.0.2.9
+      access_ip: 10.0.2.9
+    k8s-worker-3:
+      ansible_host: 158.160.200.180
+      ip: 10.0.3.16
+      access_ip: 10.0.3.16
+
+  children:
+    kube_control_plane:
+      hosts:
+        k8s-master-1:
+    kube_node:
+      hosts:
+        k8s-worker-1:
+        k8s-worker-2:
+        k8s-worker-3:
+    etcd:
+      hosts:
+        k8s-master-1:
+    k8s_cluster:
+      children:
+        kube_control_plane:
+        kube_node:
+    calico_rr:
+      hosts: {}
+```

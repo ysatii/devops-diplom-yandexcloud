@@ -127,11 +127,15 @@ personal.auto.tfvars
 personal.auto.tfvars
 *.auto.tfvars
 
-# Ignore kubespray полностью
-kubespray/
+# Ignore everything in kubespray
+kubespray/**
 
-# Но разрешаем inventory hosts.yml
+# Allow inventory path
 !kubespray/inventory/
+!kubespray/inventory/**
+
+# Allow concrete hosts.yml
 !kubespray/inventory/my-k8s-cluster/
-!terraform/infra/kubespray/inventory/my-k8s-cluster/hosts.yml
+!kubespray/inventory/my-k8s-cluster/hosts.yml
+
 

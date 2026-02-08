@@ -3,19 +3,61 @@
 # установка кластера 
 ## Склонируем Kubespray (правильная версия)
 в корне проекта devops-diplom-yandexcloud
-
+```
 git clone https://github.com/kubernetes-sigs/kubespray.git
-
 cp -r terraform/kubespray/inventory/my-k8s-cluster kubespray/inventory/
+```
 
 
-  Должен быть hosts.yml.
+Должен быть hosts.yml.
+```
 ls kubespray/inventory/my-k8s-cluster
+```
 
-Выполни из корня проекта:
+## проверим корректность инвентори файла
+```
 cd kubespray
-ansible-inventory -i inventory/my-k8s-cluster/hosts.yml --list | head
+ansible-inventory -i inventory/my-k8s-cluster/hosts.yml --list | sed -n '1,40p'
+```
+![Рисунок 13](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_13.jpg) 
+
 Если команда не ругается — inventory валидный.
+
+## Пинг всех нод
+```
+ansible -i inventory/my-k8s-cluster/hosts.yml all -m ping
+```
+![Рисунок 14](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_14.jpg) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ===============================================
  Подготовка зависимостей Kubespray (важный шаг)
