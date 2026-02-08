@@ -30,57 +30,55 @@ ansible -i inventory/my-k8s-cluster/hosts.yml all -m ping
 ![Рисунок 14](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_14.jpg) 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-===============================================
- Подготовка зависимостей Kubespray (важный шаг)
+ 
+## Подготовка зависимостей Kubespray (важный шаг)
 
 Внутри kubespray почти всегда надо поставить python-зависимости:
-
+```
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -U pip
 pip install -r requirements.txt
+```
+
+у меня возникли ошибки! на других машиназх могут быть другие ошибки или все нормально пройдет
+я привел requirements.txt к виду
+```
+# ansible==10.7.0
+ansible-core==2.13.13
+
+
+# Needed for community.crypto module
+cryptography==46.0.4
+# Needed for jinja2 json_query templating
+jmespath==1.0.1
+# Needed for ansible.utils.ipaddr
+netaddr==1.3.0
+```
 
 
 Проверка:
-
+```
 ansible --version
-
-================
-
-pip install -U pip setuptools wheel
-pip install "ansible-core==2.16.14"
-=============
-proverka 
+ansible [core 2.13.13]
+  config file = /home/lamer/Рабочий стол/devops-diplom-yandexcloud/kubespray/ansible.cfg
+  configured module search path = ['/home/lamer/Рабочий стол/devops-diplom-yandexcloud/kubespray/library']
+  ansible python module location = /home/lamer/Рабочий стол/devops-diplom-yandexcloud/kubespray/.venv/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/lamer/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/lamer/Рабочий стол/devops-diplom-yandexcloud/kubespray/.venv/bin/ansible
+  python version = 3.8.10 (default, Mar 18 2025, 20:04:55) [GCC 9.4.0]
+  jinja version = 3.1.6
+  libyaml = True
+```
+ 
+Проверка
+```
 ansible -i inventory/my-k8s-cluster/hosts.yml all -m ping
+```
+![Рисунок 15](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_15.jpg) 
+![Рисунок 16](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_16.jpg) 
+
+
 
 
 ===========================

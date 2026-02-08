@@ -128,6 +128,7 @@ personal.auto.tfvars
 *.auto.tfvars
 
 # Ignore everything in kubespray
+kubespray/
 kubespray/**
 
 # Allow inventory path
