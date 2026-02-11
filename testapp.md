@@ -52,3 +52,6 @@ docker push cr.yandex/crppb66e9i1ff7ch71d2/devops-diplom-app-nginx:v1
 registry_id = "crppb66e9i1ff7ch71d2" присутвует в выводе terraform
 
 ![Рисунок 25](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_25.jpg) 
+
+
+# Деплой тестового приложения

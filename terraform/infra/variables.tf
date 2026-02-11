@@ -22,64 +22,64 @@ variable "zone" {
 }
 
 variable "default_zone" {
-  default     = "ru-central1-a"
+  default = "ru-central1-a"
 }
 
 variable "network_cidr" {
-  type = string
+  type    = string
   default = "10.240.0.0/24"
 }
 
 variable "ssh_user" {
-  type = string
-  default = "ubuntu" 
+  type    = string
+  default = "ubuntu"
 }
 
 variable "image_family" {
-  type = string 
-  default = "ubuntu-2204-lts" 
+  type    = string
+  default = "ubuntu-2204-lts"
 }
 
 variable "master_count" {
-  type = number
-  default = 1 
+  type    = number
+  default = 1
 }
 
 variable "worker_count" {
-  type = number
-  default = 2 
+  type    = number
+  default = 2
 }
 
 # ресурсы ВМ (можно менять)
 variable "master_cores" {
-  type = number
-  default = 4 
+  type    = number
+  default = 4
 }
 
 variable "master_memory" {
-  type = number
-  default = 4 
+  type    = number
+  default = 4
 }
 
 variable "worker_cores" {
-  type = number
+  type    = number
   default = 4
 }
 
 variable "worker_memory" {
-  type = number
+  type    = number
   default = 4
 }
 
 variable "disk_size_gb" {
-  type = number
-  default = 30 
+  type    = number
+  default = 30
 }
 
 # прерываемые (recommended для worker)
 variable "workers_preemptible" {
-  type = bool 
-  default = true 
+  type    = bool
+  default = true
 }
 
 variable "subnets" {

@@ -31,7 +31,7 @@ resource "yandex_vpc_security_group" "k8s" {
   ingress {
     protocol       = "ANY"
     description    = "Internal"
-    v4_cidr_blocks = [var.network_cidr]
+    v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
     from_port      = 0
     to_port        = 65535
   }
