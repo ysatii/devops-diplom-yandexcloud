@@ -104,6 +104,11 @@ kubectl apply -f k8s/testapp/
 kubectl -n testapp get pods
 ```
 
-![Рисунок 26](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_26.jpg) 
+Запущено две реплики тестового приложения
+![Рисунок 26](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_26.jpg)  
+
+Проверям рабту со всех машин кластера
 ![Рисунок 27](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_27.jpg) 
+
+Ип адреса можем взять из вывода terraform
 ![Рисунок 28](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_28.jpg) 
