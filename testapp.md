@@ -34,7 +34,7 @@ cd devops-diplom-yandexcloud/terraform/infra
 
 OAUTH_TOKEN=$(grep -E '^\token\s*=' personal.auto.tfvars | sed -E 's/.*"([^"]+)".*/\1/')
 echo "$OAUTH_TOKEN" | docker login --username oauth --password-stdin cr.yandex
-````
+```
 
 
 перетегируем и запушим в репозиторий 
@@ -55,3 +55,55 @@ registry_id = "crppb66e9i1ff7ch71d2" присутвует в выводе terraf
 
 
 # Деплой тестового приложения
+### Для успешного деплоя нам нужно сделать секрет для regestry и добавить его в name space
+
+## Вытащим токен из personal.auto.tfvars
+```
+cd devops-diplom-yandexcloud/terraform/infra
+OAUTH_TOKEN=$(grep -E '^\s*token\s*=' personal.auto.tfvars | sed -E 's/.*"([^"]+)".*/\1/')
+echo "$OAUTH_TOKEN"
+```
+
+## Docker login в YCR этим токеном
+```
+echo "$OAUTH_TOKEN" | docker login cr.yandex -u oauth --password-stdin
+```
+
+## Теперь secret
+ВАЖНО: namespace testapp должен существовать!
+
+```
+kubectl create ns testapp --dry-run=client -o yaml | kubectl apply -f -
+kubectl -n testapp create secret docker-registry ycr-secret --docker-server=cr.yandex --docker-username=oauth --docker-password="$OAUTH_TOKEN" --docker-email=none
+```
+
+Проверка:
+
+kubectl -n testapp get secret ycr-secret
+
+## Подключить secret в Deployment
+```
+[k8s/testapp/10-deployment.yaml](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/k8s/testapp/10-deployment.yaml)
+ spec:
+      imagePullSecrets:
+        - name: ycr-secret   # <-- ВАЖНО: добавили secret
+      containers:
+        - name: testapp
+          image: cr.yandex/crpau2lnc3tnhv1ga4g8/devops-diplom-app-nginx:v1
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+```
+
+## Деплой из корня проект devops-diplom-yandexcloud
+
+
+```
+kubectl apply -f k8s/testapp/
+kubectl -n testapp get pods
+```
+
+![Рисунок 26](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_26.jpg) 
+![Рисунок 27](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_27.jpg) 
+![Рисунок 28](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_28.jpg) 
