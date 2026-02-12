@@ -1,7 +1,7 @@
 [Главная](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/task.md) 
 
 # Репозиторий для приложения 
-[репозиторий c приложением https://github.com/ysatii/devops-diplom-app-nginx](https://github.com/ysatii/devops-diplom-app-nginx) согласно задания!
+[репозиторий c приложением https://gitlab.com/yurii_melnik/devops-diplom-ci-cd.git](https://gitlab.com/yurii_melnik/devops-diplom-ci-cd.git) согласно задания!
 ```
 git clone git@github.com:ysatii/devops-diplom-app-nginx.git
 ```
