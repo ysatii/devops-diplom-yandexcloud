@@ -117,3 +117,5 @@ printf '%s' "$KUBE_CONFIG_B64" | base64 -d > ~/.kube/config
 собирается новый образ и пушится в YCR с тегом v1.N
 деплой обновляет deployment в Kubernetes на этот тег
 Kubernetes делает rolling update
+
+[файл с.gitlab-ci.yml](https://gitlab.com/yurii_melnik/devops-diplom-ci-cd/-/blob/main/.gitlab-ci.yml)

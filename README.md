@@ -6,5 +6,6 @@
 [Создание Kubernetes кластера](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/kubernetes.md)  
 [Создание тестового приложения](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/testapp.md)  
 [Подготовка cистемы мониторинга и деплой приложения](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/monitoring.md)  
-[Установка и настройка CI/CD](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/ci-cd.md.md)  
+[Установка и настройка CI/CD](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/ci-cd.md
+)  
 
