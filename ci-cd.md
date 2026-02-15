@@ -178,5 +178,7 @@ cr.yandex/crpau2lnc3tnhv1ga4g8/devops-diplom-app-nginx:v1.12
 ![Рисунок 45](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_45.jpg) 
 ![Рисунок 46](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_46.jpg) 
 
+обновление произошло ! 
+![Рисунок 47](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_47.jpg) 
 
 
