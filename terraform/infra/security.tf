@@ -17,15 +17,23 @@ resource "yandex_vpc_security_group" "k8s" {
     v4_cidr_blocks = ["0.0.0.0/0"]
     port           = 6443
   }
-
-  # NodePort (если будешь использовать)
+ 
   ingress {
     protocol       = "TCP"
-    description    = "NodePort range"
+    description    = "NodePort 30080 app"
     v4_cidr_blocks = ["0.0.0.0/0"]
-    from_port      = 30000
-    to_port        = 32767
+    from_port      = 30080
+    to_port        = 30080
   }
+
+  ingress {
+    protocol       = "TCP"
+    description    = "NodePort 30090 grafana"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    from_port      = 30090
+    to_port        = 30090
+  }
+
 
   # Внутрикластерное общение (всё внутри подсети)
   ingress {
