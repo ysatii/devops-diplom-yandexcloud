@@ -1,6 +1,32 @@
-[Главная](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/task.md) 
+[Главная]
 
-## CI/CD
+# CI/CD
+
+Репозиторий GitLab, используемый для реализации CI/CD:  
+https://gitlab.com/yurii_melnik/devops-diplom-ci-cd
+**На бесплатном тарифном плане GitLab отсутствует возможность автоматического Pull-mirroring репозиториев из https://github.com, поэтому репозиторий размещён непосредственно в GitLab.**
+
+## Первая стадия — Build
+
+При выполнении push в ветку `main` автоматически запускается pipeline.
+
+В рамках стадии сборки:
+
+- выполняется сборка Docker-образа на основе [Dockerfile](https://github.com/ysatii/devops-diplom-app-nginx/blob/main/test-app-nginx/Dockerfile)
+- образ получает версию в формате `v1.N`
+- собранный образ публикуется в Yandex Container Registry
+
+## Вторая стадия — Deploy
+
+После успешной сборки выполняется автоматическое развертывание:
+
+- Kubernetes Deployment обновляется на новую версию образа
+- выполняется rolling update без остановки сервиса
+
+В результате каждая новая версия приложения автоматически разворачивается в кластере после изменения исходного кода.
+
+
+
 ### Что нужно для CI/CD
 Компоненты
 
@@ -71,8 +97,9 @@ Masked =  (можно)
 Где лежит на master
 На master-ноде:
 /etc/kubernetes/admin.conf
+![Рисунок 41](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_41.jpg) 
 
-Как забрать себе (вариант, который ты используешь)
+Как забрать себе 
 На master:
 ```
 sudo cp /etc/kubernetes/admin.conf /home/lamer/k8s-admin.conf
@@ -105,7 +132,12 @@ insecure-skip-tls-verify: true — включён
 base64 -w 0 k8s-admin.conf > kube_b64.txt
 ```
 
-Открываем kube_b64.txt, копируешь строку целиком и вставляешь в переменную KUBE_CONFIG_B64.
+Открываем kube_b64.txt, копируем строку целиком и вставляешь в переменную KUBE_CONFIG_B64.
+
+![Рисунок 42](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_42.jpg) 
+
+
+
 
 ## Как pipeline использует kubeconfig
 
@@ -125,3 +157,26 @@ printf '%s' "$KUBE_CONFIG_B64" | base64 -d > ~/.kube/config
 Kubernetes делает rolling update
 
 [файл с.gitlab-ci.yml](https://gitlab.com/yurii_melnik/devops-diplom-ci-cd/-/blob/main/.gitlab-ci.yml)
+
+## Информация о подах до примения CI/CD
+
+```
+kubectl get pods -n testapp
+kubectl -n testapp get pod testapp-75c4f9c6f7-z9w4s -o jsonpath='{.spec.containers[*].image}'
+```
+
+Версия образа
+cr.yandex/crpau2lnc3tnhv1ga4g8/devops-diplom-app-nginx:v1.12
+
+приложение имеет версию 3!
+![Рисунок 43](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_43.jpg) 
+
+Изменям на версию 4 ! 
+изменили файл [index.html](https://gitlab.com/yurii_melnik/devops-diplom-ci-cd/-/blob/main/test-app-nginx/index.html?ref_type=heads)
+Делаем push в репозиторий 
+![Рисунок 44](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_44.jpg) 
+![Рисунок 45](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_45.jpg) 
+![Рисунок 46](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_46.jpg) 
+
+
+
