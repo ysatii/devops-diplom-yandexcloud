@@ -4,13 +4,13 @@
 ### Что нужно для CI/CD
 Компоненты
 
-- GitLab репозиторий с приложением  
+- Git репозиторий с приложением  
 - Yandex Container Registry (YCR) — куда пушим образы
 - Kubernetes кластер — куда деплоим (namespace testapp, deployment testapp)
 - GitLab CI pipeline (файл .gitlab-ci.yml в корне репозитория)
 
 ## Файл .gitlab-ci.yml (что должен делать)
-
+[.gitlab-ci.yml](https://github.com/ysatii/devops-diplom-app-nginx/blob/main/.gitlab-ci.yml)
 Pipeline состоит из 2 стадий:
 - Build
 собирает Docker-образ через Kaniko (без docker-in-docker)
@@ -23,7 +23,7 @@ Pipeline состоит из 2 стадий:
 
 ## Версионирование образов (v1.1, v1.2…)
 
-Рекомендуемый тег:
+тег:
 v1.${CI_PIPELINE_IID}
 
 Это даёт:
@@ -36,6 +36,10 @@ variables:
   IMAGE_TAG: "v1.${CI_PIPELINE_IID}"
   IMAGE: "$YCR_IMAGE:$IMAGE_TAG"
 ```
+
+![Рисунок 39](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_39.jpg) 
+
+
 ## Переменные GitLab CI/CD (сколько и какие)
 ### Нужно 3 переменные:
 
@@ -50,6 +54,8 @@ cr.yandex/crpau2lnc3tnhv1ga4g8/devops-diplom-app-nginx
 
 ### KUBE_CONFIG_B64
 ubeconfig администратора кластера (admin.conf), закодированный в base64 одной строкой.
+
+![Рисунок 40](https://github.com/ysatii/devops-diplom-yandexcloud/blob/main/img/img_40.jpg) 
 
 ### Где и как завести переменные в GitLab
 
